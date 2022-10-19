@@ -3,5 +3,5 @@ CeceDate <- as.Date(as.character(rawCece$Time), format = "%Y%m%d")
 library(xts)
 CeceRain <- xts(rawCece$r, CeceDate)
 
-apply.monthly(CeceRain, sum)
-apply.yearly(CeceRain, sum)
+write.zoo(apply.monthly(CeceRain, sum), "HaviCece.csv", sep = ";", dec = ",")
+write.zoo(apply.yearly(CeceRain, sum), "ÉvesCece.csv", sep = ";", dec = ",")
